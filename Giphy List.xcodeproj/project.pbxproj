@@ -13,6 +13,14 @@
 		02C5925124D5A9B30086BE85 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C5925024D5A9B30086BE85 /* main.m */; };
 		02C8289C24D6E21D00685260 /* JSONModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C8289B24D6E21D00685260 /* JSONModel.framework */; };
 		02C828A124D6E29400685260 /* JSONModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C8289B24D6E21D00685260 /* JSONModel.framework */; platformFilter = ios; };
+		02C828AF24D6E39B00685260 /* SearchResultJSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C828A824D6E39B00685260 /* SearchResultJSONModel.m */; };
+		02C828B024D6E39B00685260 /* PaginationJSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C828AA24D6E39B00685260 /* PaginationJSONModel.m */; };
+		02C828B124D6E39B00685260 /* RequestFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C828AC24D6E39B00685260 /* RequestFactory.m */; };
+		02C828B224D6E39B00685260 /* NetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C828AD24D6E39B00685260 /* NetworkService.m */; };
+		02C828B424D6E3B000685260 /* URLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C828B324D6E3B000685260 /* URLTests.m */; };
+		02C828B724D6E9A600685260 /* ImagesJSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C828B624D6E9A600685260 /* ImagesJSONModel.m */; };
+		02C828BA24D6EF8E00685260 /* FixedHeightImageJSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C828B924D6EF8E00685260 /* FixedHeightImageJSONModel.m */; };
+		02C828BD24D6F34C00685260 /* GIFJSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C828BC24D6F34C00685260 /* GIFJSONModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +44,21 @@
 		02C5925624D5A9B30086BE85 /* Giphy ListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Giphy ListTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C5925C24D5A9B30086BE85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02C8289B24D6E21D00685260 /* JSONModel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSONModel.framework; path = Carthage/Build/iOS/JSONModel.framework; sourceTree = "<group>"; };
+		02C828A324D6E39B00685260 /* NetworkService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkService.h; sourceTree = "<group>"; };
+		02C828A424D6E39B00685260 /* RequestFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestFactory.h; sourceTree = "<group>"; };
+		02C828A724D6E39B00685260 /* PaginationJSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaginationJSONModel.h; sourceTree = "<group>"; };
+		02C828A824D6E39B00685260 /* SearchResultJSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultJSONModel.m; sourceTree = "<group>"; };
+		02C828AA24D6E39B00685260 /* PaginationJSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaginationJSONModel.m; sourceTree = "<group>"; };
+		02C828AB24D6E39B00685260 /* SearchResultJSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultJSONModel.h; sourceTree = "<group>"; };
+		02C828AC24D6E39B00685260 /* RequestFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestFactory.m; sourceTree = "<group>"; };
+		02C828AD24D6E39B00685260 /* NetworkService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkService.m; sourceTree = "<group>"; };
+		02C828B324D6E3B000685260 /* URLTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLTests.m; sourceTree = "<group>"; };
+		02C828B524D6E9A600685260 /* ImagesJSONModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImagesJSONModel.h; sourceTree = "<group>"; };
+		02C828B624D6E9A600685260 /* ImagesJSONModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImagesJSONModel.m; sourceTree = "<group>"; };
+		02C828B824D6EF8E00685260 /* FixedHeightImageJSONModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FixedHeightImageJSONModel.h; sourceTree = "<group>"; };
+		02C828B924D6EF8E00685260 /* FixedHeightImageJSONModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FixedHeightImageJSONModel.m; sourceTree = "<group>"; };
+		02C828BB24D6F34C00685260 /* GIFJSONModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GIFJSONModel.h; sourceTree = "<group>"; };
+		02C828BC24D6F34C00685260 /* GIFJSONModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GIFJSONModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +103,7 @@
 		02C5923D24D5A9B20086BE85 /* Giphy List */ = {
 			isa = PBXGroup;
 			children = (
+				02C828A224D6E39B00685260 /* NetworkService */,
 				02C5923E24D5A9B20086BE85 /* AppDelegate.h */,
 				02C5923F24D5A9B20086BE85 /* AppDelegate.m */,
 				02C5924A24D5A9B30086BE85 /* Assets.xcassets */,
@@ -93,6 +117,7 @@
 		02C5925924D5A9B30086BE85 /* Giphy ListTests */ = {
 			isa = PBXGroup;
 			children = (
+				02C828B324D6E3B000685260 /* URLTests.m */,
 				02C5925C24D5A9B30086BE85 /* Info.plist */,
 			);
 			path = "Giphy ListTests";
@@ -104,6 +129,35 @@
 				02C8289B24D6E21D00685260 /* JSONModel.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		02C828A224D6E39B00685260 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				02C828A324D6E39B00685260 /* NetworkService.h */,
+				02C828AD24D6E39B00685260 /* NetworkService.m */,
+				02C828A424D6E39B00685260 /* RequestFactory.h */,
+				02C828AC24D6E39B00685260 /* RequestFactory.m */,
+				02C828A524D6E39B00685260 /* JSONModels */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		02C828A524D6E39B00685260 /* JSONModels */ = {
+			isa = PBXGroup;
+			children = (
+				02C828A724D6E39B00685260 /* PaginationJSONModel.h */,
+				02C828AA24D6E39B00685260 /* PaginationJSONModel.m */,
+				02C828AB24D6E39B00685260 /* SearchResultJSONModel.h */,
+				02C828A824D6E39B00685260 /* SearchResultJSONModel.m */,
+				02C828BB24D6F34C00685260 /* GIFJSONModel.h */,
+				02C828BC24D6F34C00685260 /* GIFJSONModel.m */,
+				02C828B524D6E9A600685260 /* ImagesJSONModel.h */,
+				02C828B624D6E9A600685260 /* ImagesJSONModel.m */,
+				02C828B824D6EF8E00685260 /* FixedHeightImageJSONModel.h */,
+				02C828B924D6EF8E00685260 /* FixedHeightImageJSONModel.m */,
+			);
+			path = JSONModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,8 +282,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02C828B124D6E39B00685260 /* RequestFactory.m in Sources */,
 				02C5924024D5A9B20086BE85 /* AppDelegate.m in Sources */,
+				02C828BD24D6F34C00685260 /* GIFJSONModel.m in Sources */,
 				02C5925124D5A9B30086BE85 /* main.m in Sources */,
+				02C828BA24D6EF8E00685260 /* FixedHeightImageJSONModel.m in Sources */,
+				02C828AF24D6E39B00685260 /* SearchResultJSONModel.m in Sources */,
+				02C828B024D6E39B00685260 /* PaginationJSONModel.m in Sources */,
+				02C828B724D6E9A600685260 /* ImagesJSONModel.m in Sources */,
+				02C828B224D6E39B00685260 /* NetworkService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02C828B424D6E3B000685260 /* URLTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
