@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,8 @@
 		02C5924B24D5A9B30086BE85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C5924A24D5A9B30086BE85 /* Assets.xcassets */; };
 		02C5924E24D5A9B30086BE85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02C5924C24D5A9B30086BE85 /* LaunchScreen.storyboard */; };
 		02C5925124D5A9B30086BE85 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C5925024D5A9B30086BE85 /* main.m */; };
+		02C8289C24D6E21D00685260 /* JSONModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C8289B24D6E21D00685260 /* JSONModel.framework */; };
+		02C828A124D6E29400685260 /* JSONModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C8289B24D6E21D00685260 /* JSONModel.framework */; platformFilter = ios; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +35,7 @@
 		02C5925024D5A9B30086BE85 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		02C5925624D5A9B30086BE85 /* Giphy ListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Giphy ListTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C5925C24D5A9B30086BE85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02C8289B24D6E21D00685260 /* JSONModel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSONModel.framework; path = Carthage/Build/iOS/JSONModel.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02C828A124D6E29400685260 /* JSONModel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02C8289C24D6E21D00685260 /* JSONModel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +64,7 @@
 				02C5923D24D5A9B20086BE85 /* Giphy List */,
 				02C5925924D5A9B30086BE85 /* Giphy ListTests */,
 				02C5923C24D5A9B20086BE85 /* Products */,
+				02C8289A24D6E21D00685260 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,6 +98,14 @@
 			path = "Giphy ListTests";
 			sourceTree = "<group>";
 		};
+		02C8289A24D6E21D00685260 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				02C8289B24D6E21D00685260 /* JSONModel.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -102,6 +116,7 @@
 				02C5923724D5A9B20086BE85 /* Sources */,
 				02C5923924D5A9B20086BE85 /* Resources */,
 				02C8289424D60AAC00685260 /* Frameworks */,
+				02C828A024D6E23B00685260 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -185,6 +200,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		02C828A024D6E23B00685260 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/JSONModel.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/JSONModel.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		02C5923724D5A9B20086BE85 /* Sources */ = {
