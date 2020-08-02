@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GIFJSONModel : JSONModel
 
-@property (nonatomic, nonnull) ImagesJSONModel *images;
+@property (nonatomic) ImagesJSONModel *images;
 
 @end
 

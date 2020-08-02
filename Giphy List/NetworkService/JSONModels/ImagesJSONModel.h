@@ -12,7 +12,7 @@
 
 @interface ImagesJSONModel : JSONModel
 
-@property (nonatomic, nonnull) FixedHeightImageJSONModel *fixedHeight;
+@property (nonatomic) FixedHeightImageJSONModel *fixedHeight;
 
 @end
 

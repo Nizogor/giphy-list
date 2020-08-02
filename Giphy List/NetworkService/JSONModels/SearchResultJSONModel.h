@@ -15,8 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SearchResultJSONModel : JSONModel
 
-@property (nonatomic, nonnull) NSArray<GIFJSONModel *><GIFJSONModel> *data;
-@property (nonatomic, nonnull) PaginationJSONModel *pagination;
+@property (nonatomic) NSArray<GIFJSONModel *><GIFJSONModel> *data;
+@property (nonatomic) PaginationJSONModel *pagination;
 
 @end
 

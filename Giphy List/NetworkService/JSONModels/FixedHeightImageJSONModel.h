@@ -12,9 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FixedHeightImageJSONModel : JSONModel
 
-@property (nonatomic, nonnull) NSString *width;
-@property (nonatomic, nonnull) NSString *height;
-@property (nonatomic, nonnull) NSString *url;
+@property (nonatomic) NSString *width;
+@property (nonatomic) NSString *height;
+@property (nonatomic) NSString *url;
 
 @end
 
