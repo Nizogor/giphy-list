@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "CollectionBuilder.h"
 
 @interface AppDelegate ()
 
@@ -15,7 +16,15 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	// Override point for customization after application launch.
+	CollectionBuilder *builder = [[CollectionBuilder alloc] init];
+	UIViewController *viewController = [builder buildModule];
+	UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+
+	self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+	self.window.rootViewController = navigationController;
+
+	[self.window makeKeyAndVisible];
+
 	return YES;
 }
 

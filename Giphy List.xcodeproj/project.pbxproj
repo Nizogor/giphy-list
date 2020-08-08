@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		024F3A6424D71DCB00219B21 /* CollectionBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 024F3A6324D71DCB00219B21 /* CollectionBuilder.m */; };
 		024F3A6624D72A5700219B21 /* FLAnimatedImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 024F3A6524D72A5700219B21 /* FLAnimatedImage.framework */; };
 		024F3A6924D72A6100219B21 /* JSONModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C8289B24D6E21D00685260 /* JSONModel.framework */; };
+		024F3A6D24D749D800219B21 /* CollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 024F3A6C24D749D800219B21 /* CollectionViewLayout.m */; };
 		02C5924024D5A9B20086BE85 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C5923F24D5A9B20086BE85 /* AppDelegate.m */; };
 		02C5924B24D5A9B30086BE85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C5924A24D5A9B30086BE85 /* Assets.xcassets */; };
 		02C5924E24D5A9B30086BE85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02C5924C24D5A9B30086BE85 /* LaunchScreen.storyboard */; };
@@ -22,6 +24,11 @@
 		02C828B724D6E9A600685260 /* ImagesJSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C828B624D6E9A600685260 /* ImagesJSONModel.m */; };
 		02C828BA24D6EF8E00685260 /* FixedHeightImageJSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C828B924D6EF8E00685260 /* FixedHeightImageJSONModel.m */; };
 		02C828BD24D6F34C00685260 /* GIFJSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C828BC24D6F34C00685260 /* GIFJSONModel.m */; };
+		02C828C124D6F78F00685260 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C828C024D6F78F00685260 /* CollectionViewController.m */; };
+		02C828C524D6F7D800685260 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C828C424D6F7D800685260 /* CollectionViewCell.m */; };
+		02C828CA24D6F88F00685260 /* CollectionPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C828C924D6F88F00685260 /* CollectionPresenter.m */; };
+		02C828CE24D6F90400685260 /* CollectionCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C828CD24D6F90400685260 /* CollectionCellViewModel.m */; };
+		02C828D124D7025200685260 /* ImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C828D024D7025200685260 /* ImageLoader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +42,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		024F3A6224D71DCB00219B21 /* CollectionBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionBuilder.h; sourceTree = "<group>"; };
+		024F3A6324D71DCB00219B21 /* CollectionBuilder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionBuilder.m; sourceTree = "<group>"; };
 		024F3A6524D72A5700219B21 /* FLAnimatedImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FLAnimatedImage.framework; path = Carthage/Build/iOS/FLAnimatedImage.framework; sourceTree = "<group>"; };
+		024F3A6B24D749D800219B21 /* CollectionViewLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewLayout.h; sourceTree = "<group>"; };
+		024F3A6C24D749D800219B21 /* CollectionViewLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewLayout.m; sourceTree = "<group>"; };
 		02C5923B24D5A9B20086BE85 /* Giphy List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Giphy List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C5923E24D5A9B20086BE85 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		02C5923F24D5A9B20086BE85 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -61,6 +72,16 @@
 		02C828B924D6EF8E00685260 /* FixedHeightImageJSONModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FixedHeightImageJSONModel.m; sourceTree = "<group>"; };
 		02C828BB24D6F34C00685260 /* GIFJSONModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GIFJSONModel.h; sourceTree = "<group>"; };
 		02C828BC24D6F34C00685260 /* GIFJSONModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GIFJSONModel.m; sourceTree = "<group>"; };
+		02C828BF24D6F78F00685260 /* CollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
+		02C828C024D6F78F00685260 /* CollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		02C828C324D6F7D800685260 /* CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		02C828C424D6F7D800685260 /* CollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
+		02C828C824D6F88F00685260 /* CollectionPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionPresenter.h; sourceTree = "<group>"; };
+		02C828C924D6F88F00685260 /* CollectionPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionPresenter.m; sourceTree = "<group>"; };
+		02C828CC24D6F90400685260 /* CollectionCellViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionCellViewModel.h; sourceTree = "<group>"; };
+		02C828CD24D6F90400685260 /* CollectionCellViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionCellViewModel.m; sourceTree = "<group>"; };
+		02C828CF24D7025200685260 /* ImageLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageLoader.h; sourceTree = "<group>"; };
+		02C828D024D7025200685260 /* ImageLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageLoader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +127,7 @@
 		02C5923D24D5A9B20086BE85 /* Giphy List */ = {
 			isa = PBXGroup;
 			children = (
+				02C828BE24D6F73700685260 /* Collection */,
 				02C828A224D6E39B00685260 /* NetworkService */,
 				02C5923E24D5A9B20086BE85 /* AppDelegate.h */,
 				02C5923F24D5A9B20086BE85 /* AppDelegate.m */,
@@ -142,6 +164,8 @@
 				02C828AD24D6E39B00685260 /* NetworkService.m */,
 				02C828A424D6E39B00685260 /* RequestFactory.h */,
 				02C828AC24D6E39B00685260 /* RequestFactory.m */,
+				02C828CF24D7025200685260 /* ImageLoader.h */,
+				02C828D024D7025200685260 /* ImageLoader.m */,
 				02C828A524D6E39B00685260 /* JSONModels */,
 			);
 			path = NetworkService;
@@ -162,6 +186,49 @@
 				02C828B924D6EF8E00685260 /* FixedHeightImageJSONModel.m */,
 			);
 			path = JSONModels;
+			sourceTree = "<group>";
+		};
+		02C828BE24D6F73700685260 /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				02C828CB24D6F89500685260 /* Model */,
+				02C828C724D6F87E00685260 /* Presenter */,
+				02C828C624D6F87500685260 /* View */,
+				024F3A6224D71DCB00219B21 /* CollectionBuilder.h */,
+				024F3A6324D71DCB00219B21 /* CollectionBuilder.m */,
+			);
+			path = Collection;
+			sourceTree = "<group>";
+		};
+		02C828C624D6F87500685260 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				02C828BF24D6F78F00685260 /* CollectionViewController.h */,
+				02C828C024D6F78F00685260 /* CollectionViewController.m */,
+				02C828C324D6F7D800685260 /* CollectionViewCell.h */,
+				02C828C424D6F7D800685260 /* CollectionViewCell.m */,
+				024F3A6B24D749D800219B21 /* CollectionViewLayout.h */,
+				024F3A6C24D749D800219B21 /* CollectionViewLayout.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		02C828C724D6F87E00685260 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				02C828C824D6F88F00685260 /* CollectionPresenter.h */,
+				02C828C924D6F88F00685260 /* CollectionPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		02C828CB24D6F89500685260 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				02C828CC24D6F90400685260 /* CollectionCellViewModel.h */,
+				02C828CD24D6F90400685260 /* CollectionCellViewModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,14 +355,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02C828D124D7025200685260 /* ImageLoader.m in Sources */,
 				02C828B124D6E39B00685260 /* RequestFactory.m in Sources */,
 				02C5924024D5A9B20086BE85 /* AppDelegate.m in Sources */,
 				02C828BD24D6F34C00685260 /* GIFJSONModel.m in Sources */,
 				02C5925124D5A9B30086BE85 /* main.m in Sources */,
+				02C828CA24D6F88F00685260 /* CollectionPresenter.m in Sources */,
+				024F3A6D24D749D800219B21 /* CollectionViewLayout.m in Sources */,
 				02C828BA24D6EF8E00685260 /* FixedHeightImageJSONModel.m in Sources */,
 				02C828AF24D6E39B00685260 /* SearchResultJSONModel.m in Sources */,
 				02C828B024D6E39B00685260 /* PaginationJSONModel.m in Sources */,
 				02C828B724D6E9A600685260 /* ImagesJSONModel.m in Sources */,
+				024F3A6424D71DCB00219B21 /* CollectionBuilder.m in Sources */,
+				02C828CE24D6F90400685260 /* CollectionCellViewModel.m in Sources */,
+				02C828C124D6F78F00685260 /* CollectionViewController.m in Sources */,
+				02C828C524D6F7D800685260 /* CollectionViewCell.m in Sources */,
 				02C828B224D6E39B00685260 /* NetworkService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
