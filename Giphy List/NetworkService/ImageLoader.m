@@ -54,12 +54,10 @@
 }
 
 - (void)addListener:(id<ImageLoaderListener>)listener {
-	NSLog(@"addListener: %@", listener.urlString);
 	[self.listeners setObject:listener.urlString forKey:listener];
 }
 
 - (void)removeListener:(id<ImageLoaderListener>)listener {
-	NSLog(@"removeListener: %@", listener.urlString);
 	[self.imagesToLoad removeObject:listener.urlString];
 	[self.listeners removeObjectForKey:listener];
 }
