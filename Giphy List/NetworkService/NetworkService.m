@@ -7,7 +7,6 @@
 //
 
 #import "NetworkService.h"
-#import "RequestFactory.h"
 
 @interface NetworkService ()
 
@@ -50,7 +49,9 @@
 	__auto_type completionHandler = ^(NSData * _Nullable data,
 									  NSURLResponse * _Nullable response,
 									  NSError * _Nullable error) {
-		[wself handleResponseData:data error:error success:success failure:failure];
+		dispatch_async(dispatch_get_main_queue(), ^{
+			[wself handleResponseData:data error:error success:success failure:failure];
+		});
 	};
 
 	NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request
