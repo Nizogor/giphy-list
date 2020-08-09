@@ -45,6 +45,8 @@
 }
 
 - (void)loadImageWithURL:(NSString *)urlString {
+	NSLog(@"%ld", self.operationQueue.operationCount);
+
 	NSBlockOperation *existingOperation = [self.operations objectForKey:urlString];
 	if (existingOperation.isReady || existingOperation.isExecuting) {
 		return;

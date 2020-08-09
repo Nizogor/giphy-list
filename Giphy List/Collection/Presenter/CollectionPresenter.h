@@ -17,7 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) BOOL isLoading;
 @property (nonatomic, readonly) NSArray<CollectionCellViewModel *> *viewModels;
 
-- (void)load;
+- (void)loadMore;
+- (void)loadImagesWithQuery:(NSString *)query;
 
 @end
 

@@ -38,7 +38,6 @@ static NSString * const kLoadingCellReuseIdentifier = @"CollectionViewLoadCell";
 	self.view.backgroundColor = UIColor.whiteColor;
 	[self setupNavigationItem];
 	[self setupCollecitonView];
-	[self.presenter load];
 	[self setupSearchBar];
 }
 
@@ -90,6 +89,9 @@ static NSString * const kLoadingCellReuseIdentifier = @"CollectionViewLoadCell";
 	self.searchBar.backgroundImage = [[UIImage alloc] init];
 	self.searchBar.backgroundColor = UIColor.whiteColor;
 	self.searchBar.placeholder = @"Search";
+	[self.searchBar.searchTextField addTarget:self
+									   action:@selector(textChanged)
+							 forControlEvents:UIControlEventEditingChanged];
 	self.searchBar.translatesAutoresizingMaskIntoConstraints = NO;
 
 	[self.view addSubview:self.searchBar];
@@ -99,6 +101,12 @@ static NSString * const kLoadingCellReuseIdentifier = @"CollectionViewLoadCell";
 	self.keyboardConstraint.active = YES;
 
 	[expanderView.topAnchor constraintEqualToAnchor:self.searchBar.topAnchor].active = YES;
+}
+
+#pragma mark - Actions
+
+- (void)textChanged {
+	[self.presenter loadImagesWithQuery:self.searchBar.text];
 }
 
 #pragma mark - Notifications
@@ -169,7 +177,8 @@ static NSString * const kLoadingCellReuseIdentifier = @"CollectionViewLoadCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
 			 imageCellForItemAtIndexPath:(NSIndexPath *)indexPath {
 	CollectionViewCell *cell = (CollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:kImageCellReuseIdentifier forIndexPath:indexPath];
-	cell.viewModel = self.presenter.viewModels[indexPath.row];
+	CollectionCellViewModel *viewModel = self.presenter.viewModels[indexPath.row];
+	[cell setupWithViewModel:viewModel];
 
     return cell;
 }
@@ -183,27 +192,12 @@ static NSString * const kLoadingCellReuseIdentifier = @"CollectionViewLoadCell";
     return cell;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-	switch (indexPath.section) {
-		case CollectionViewControllerImagesSection: {
-			CollectionCellViewModel *viewModel = self.presenter.viewModels[indexPath.row];
-			[viewModel updateImage];
-			break;
-		}
-		case CollectionViewControllerLoadMoreSection:
-			[self.presenter load];
-			break;
-		default:
-			break;
-	}
-}
-
 - (void)collectionView:(UICollectionView *)collectionView
 	   willDisplayCell:(UICollectionViewCell *)cell
 	forItemAtIndexPath:(NSIndexPath *)indexPath {
 	switch (indexPath.section) {
 		case CollectionViewControllerLoadMoreSection:
-			[self.presenter load];
+			[self.presenter loadMore];
 			break;
 		default:
 			break;

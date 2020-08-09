@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CollectionViewCell : UICollectionViewCell <CollectionCellViewModelDelegate>
 
-@property (nonatomic, nullable) CollectionCellViewModel *viewModel;
+- (void)setupWithViewModel:(CollectionCellViewModel *)viewModel;
 
 @end
 

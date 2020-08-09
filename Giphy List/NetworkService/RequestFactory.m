@@ -21,7 +21,10 @@ NSString *const kBaseURLString = @"https://api.giphy.com/v1/gifs/search";
 	NSString *urlString = [NSString stringWithFormat:@"%@?%@", kBaseURLString, queryString];
 	NSURL *url = [NSURL URLWithString:urlString];
 	if (url) {
-		return [NSURLRequest requestWithURL:url];
+		NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
+		urlRequest.timeoutInterval = 10;
+
+		return urlRequest;
 	} else {
 		return nil;
 	}

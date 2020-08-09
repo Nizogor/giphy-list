@@ -14,6 +14,7 @@
 @property (nonatomic) FLAnimatedImageView *imageView;
 @property (nonatomic) UIActivityIndicatorView *activityIndicator;
 @property (nonatomic) UIImageView *refreshImageView;
+@property (nonatomic, weak, nullable) CollectionCellViewModel *viewModel;
 @property (nonatomic, getter=isSetup) BOOL setup;
 
 @end
@@ -29,8 +30,8 @@
 	[self.activityIndicator stopAnimating];
 }
 
-- (void)setViewModel:(CollectionCellViewModel *)viewModel {
-	_viewModel = viewModel;
+- (void)setupWithViewModel:(CollectionCellViewModel *)viewModel {
+	self.viewModel = viewModel;
 	viewModel.delegate = self;
 
 	[self setupCell];
