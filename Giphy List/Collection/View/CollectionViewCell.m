@@ -33,7 +33,7 @@
 	_viewModel = viewModel;
 	viewModel.delegate = self;
 
-	[self setup];
+	[self setupCell];
 	[self updateState];
 
 	[viewModel updateImage];
@@ -59,7 +59,7 @@
 	}
 }
 
-- (void)setup {
+- (void)setupCell {
 	if (self.isSetup) {
 		return;
 	}

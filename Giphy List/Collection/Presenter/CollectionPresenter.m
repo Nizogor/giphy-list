@@ -10,10 +10,13 @@
 #import "NetworkService.h"
 #import "ImageLoader.h"
 
+NSInteger const kLimit = 100;
+
 @interface CollectionPresenter ()
 
 @property (nonatomic) BOOL isLoading;
 @property (nonatomic) NSMutableArray<CollectionCellViewModel *> *viewModels;
+@property (nonatomic, nullable) PaginationJSONModel *pagination;
 
 @property (nonatomic) id<NetworkServiceProtocol> networkService;
 
@@ -31,16 +34,16 @@
 }
 
 - (void)load {
-	if (self.isLoading) {
+	if (self.isLoading && self.viewModels.count < self.pagination.count) {
 		return;
 	}
 
 	self.isLoading = YES;
-	[self.delegate update];
+	[self.delegate updateIsLoading];
 
 	__weak typeof(self) wself = self;
 
-	[self.networkService searchWithQuery:@"test" limit:200 offset:0 success:^(SearchResultJSONModel * _Nonnull result) {
+	[self.networkService searchWithQuery:@"test" limit:kLimit offset:self.viewModels.count success:^(SearchResultJSONModel * _Nonnull result) {
 		NSMutableArray<CollectionCellViewModel *> *newViewModels = @[].mutableCopy;
 
 		for (GIFJSONModel *model in result.data) {
@@ -57,9 +60,11 @@
 
 		wself.isLoading = NO;
 		[wself.viewModels addObjectsFromArray:newViewModels];
-		[wself.delegate update];
+		[wself.delegate updateIsLoading];
+		[wself.delegate updateList];
 	} failure:^(NSError * _Nonnull error) {
-
+		wself.isLoading = NO;
+		[wself.delegate updateIsLoading];
 	}];
 }
 

@@ -23,7 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol CollectionPresenterDelegate <NSObject>
 
-- (void)update;
+- (void)updateList;
+- (void)updateIsLoading;
 
 @end
 

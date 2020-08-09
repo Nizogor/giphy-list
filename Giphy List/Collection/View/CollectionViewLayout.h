@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "CollectionPresenter.h"
 
+typedef NS_ENUM(NSUInteger, CollectionViewControllerSection) {
+	CollectionViewControllerImagesSection,
+	CollectionViewControllerLoadMoreSection
+};
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CollectionViewLayout : UICollectionViewLayout

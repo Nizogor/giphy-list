@@ -54,7 +54,7 @@ CGFloat const kLineHeight = 100;
 
 		CGFloat sizeMultiplier = (CGFloat)viewModel.height / kLineHeight;
 		CGFloat desiredWidth = viewModel.width * sizeMultiplier;
-		NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+		NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:CollectionViewControllerImagesSection];
 
 		UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
 		attributes.size = CGSizeMake(desiredWidth, kLineHeight);
@@ -84,13 +84,19 @@ CGFloat const kLineHeight = 100;
 		}
 	}
 
+	if (result.count) {
+		NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:CollectionViewControllerLoadMoreSection];
+		UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
+		attributes.frame = CGRectMake(0, CGRectGetMaxY(result.lastObject.frame), availableWidth, 1);
+		[result addObject:attributes];
+	}
+
 	return result;
 }
 
 - (CGSize)collectionViewContentSize {
 	return CGSizeMake(self.collectionView.bounds.size.width, CGRectGetMaxY(self.cachedAttributes.lastObject.frame));
 }
-
 
 - (NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect {
 	NSRange range = NSMakeRange(0, self.cachedAttributes.count);
