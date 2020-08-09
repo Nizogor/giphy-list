@@ -10,6 +10,8 @@
 #import "CollectionViewLayout.h"
 #import "CollectionViewCell.h"
 
+CGFloat const kSearchBarHeight = 56;
+
 @interface CollectionViewController ()
 
 @property (nonatomic) UIActivityIndicatorView *activityIndicator;
@@ -62,6 +64,8 @@ static NSString * const kLoadingCellReuseIdentifier = @"CollectionViewLoadCell";
 }
 
 - (void)setupCollecitonView {
+	UIEdgeInsets contentInset = UIEdgeInsetsMake(0, 0, kSearchBarHeight, 0);
+	[self.collectionView setContentInset:contentInset];
 	[self.collectionView registerClass:[CollectionViewCell class] forCellWithReuseIdentifier:kImageCellReuseIdentifier];
 	[self.collectionView registerClass:[UICollectionViewCell class]
 			forCellWithReuseIdentifier:kLoadingCellReuseIdentifier];
@@ -97,6 +101,7 @@ static NSString * const kLoadingCellReuseIdentifier = @"CollectionViewLoadCell";
 	[self.view addSubview:self.searchBar];
 	[self.searchBar.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor].active = YES;
 	[self.searchBar.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor].active = YES;
+	[self.searchBar.heightAnchor constraintEqualToConstant:kSearchBarHeight].active = YES;
 	self.keyboardConstraint = [self.searchBar.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor];
 	self.keyboardConstraint.active = YES;
 
