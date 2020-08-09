@@ -16,8 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly) NSString *urlString;
 
-- (void)imageLoader:(ImageLoader *)imageLoader didLoadImage:(NSData *)image fromURL:(NSString *)urlString;
-- (void)imageLoader:(ImageLoader *)imageLoader didFailLoadingImageWithURL:(NSString *)urlString;
+- (void)imageLoaderDidFinishLoadingImage:(NSData *)image;
+- (void)imageLoaderDidFailLoadingImage;
 
 @end
 
@@ -27,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)removeListener:(id<ImageLoaderListener>)listener;
 
 - (void)loadImageWithURL:(NSString *)urlString;
+- (void)cancelLoadingImageWithURL:(NSString *)urlString;
 
 @end
 

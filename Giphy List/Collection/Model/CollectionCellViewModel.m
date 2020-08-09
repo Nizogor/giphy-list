@@ -39,11 +39,15 @@
 	return self;
 }
 
+- (void)dealloc {
+	[self.imageLoader cancelLoadingImageWithURL:self.urlString];
+}
+
 - (void)setDelegate:(id<CollectionCellViewModelDelegate>)delegate {
 	_delegate = delegate;
 
 	if (!delegate) {
-		[self.imageLoader removeListener:self];
+		[self.imageLoader cancelLoadingImageWithURL:self.urlString];
 
 		switch (self.state) {
 			case CollectionCellViewModelStateLoading:
@@ -79,7 +83,7 @@
 
 #pragma mark - ImageLoaderListener
 
-- (void)imageLoader:(ImageLoader *)imageLoader didLoadImage:(NSData *)image fromURL:(NSString *)urlString {
+- (void)imageLoaderDidFinishLoadingImage:(NSData *)image {
 	[self.imageLoader removeListener:self];
 
 	self.image = image;
@@ -87,7 +91,7 @@
 	[self updateView];
 }
 
-- (void)imageLoader:(ImageLoader *)imageLoader didFailLoadingImageWithURL:(NSString *)urlString {
+- (void)imageLoaderDidFailLoadingImage {
 	[self.imageLoader removeListener:self];
 
 	self.state = CollectionCellViewModelStateDefault;
