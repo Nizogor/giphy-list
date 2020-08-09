@@ -13,7 +13,9 @@
 @interface CollectionViewController ()
 
 @property (nonatomic) UIActivityIndicatorView *activityIndicator;
+@property (nonatomic) UISearchBar *searchBar;
 @property (nonatomic, readonly) id<CollectionPresenterProtocol> presenter;
+@property (nonatomic) NSLayoutConstraint *keyboardConstraint;
 
 @end
 
@@ -33,18 +35,93 @@ static NSString * const kLoadingCellReuseIdentifier = @"CollectionViewLoadCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.collectionView registerClass:[CollectionViewCell class] forCellWithReuseIdentifier:kImageCellReuseIdentifier];
-	[self.collectionView registerClass:[UICollectionViewCell class]
-			forCellWithReuseIdentifier:kLoadingCellReuseIdentifier];
+	self.view.backgroundColor = UIColor.whiteColor;
 	[self setupNavigationItem];
+	[self setupCollecitonView];
 	[self.presenter load];
+	[self setupSearchBar];
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
 
 - (void)setupNavigationItem {
 	self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleMedium];
 
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.activityIndicator];
 	self.navigationItem.title = @"Giphy List";
+}
+
+- (void)setupCollecitonView {
+	[self.collectionView registerClass:[CollectionViewCell class] forCellWithReuseIdentifier:kImageCellReuseIdentifier];
+	[self.collectionView registerClass:[UICollectionViewCell class]
+			forCellWithReuseIdentifier:kLoadingCellReuseIdentifier];
+	self.collectionView.backgroundColor = UIColor.whiteColor;
+	self.collectionView.keyboardDismissMode = YES;
+	self.collectionView.translatesAutoresizingMaskIntoConstraints = NO;
+	[self.collectionView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor].active = YES;
+	[self.collectionView.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor].active = YES;
+	[self.collectionView.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor].active = YES;
+	[self.collectionView.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor].active = YES;
+}
+
+- (void)setupSearchBar {
+	UIView *expanderView = [[UIView alloc] init];
+	expanderView.backgroundColor = UIColor.whiteColor;
+	expanderView.translatesAutoresizingMaskIntoConstraints = NO;
+
+	[self.view addSubview:expanderView];
+	[expanderView.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor].active = YES;
+	[expanderView.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor].active = YES;
+	[expanderView.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor].active = YES;
+
+	self.searchBar = [[UISearchBar alloc] init];
+	self.searchBar.layer.borderWidth = 0;
+	self.searchBar.backgroundImage = [[UIImage alloc] init];
+	self.searchBar.backgroundColor = UIColor.whiteColor;
+	self.searchBar.placeholder = @"Search";
+	self.searchBar.translatesAutoresizingMaskIntoConstraints = NO;
+
+	[self.view addSubview:self.searchBar];
+	[self.searchBar.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor].active = YES;
+	[self.searchBar.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor].active = YES;
+	self.keyboardConstraint = [self.searchBar.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor];
+	self.keyboardConstraint.active = YES;
+
+	[expanderView.topAnchor constraintEqualToAnchor:self.searchBar.topAnchor].active = YES;
+}
+
+#pragma mark - Notifications
+
+- (void)keyboardWillShow:(NSNotification *)notification {
+	CGRect endFrame = [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+	NSTimeInterval duration = [[notification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+	UIViewAnimationCurve animationCurve = [[notification.userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] integerValue];
+
+	[UIView animateWithDuration:duration delay:0 options:animationCurve animations:^{
+		self.keyboardConstraint.constant = -CGRectGetHeight(endFrame) + self.view.safeAreaInsets.bottom;
+		[self.view layoutIfNeeded];
+	} completion:nil];
+}
+
+- (void)keyboardWillHide:(NSNotification *)notification {
+	NSTimeInterval duration = [[notification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+	UIViewAnimationCurve animationCurve = [[notification.userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] integerValue];
+
+	[UIView animateWithDuration:duration delay:0 options:animationCurve animations:^{
+		self.keyboardConstraint.constant = 0;
+		[self.view layoutIfNeeded];
+	} completion:nil];
 }
 
 #pragma mark <CollectionPresenterDelegate>
