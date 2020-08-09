@@ -15,7 +15,7 @@ NSInteger const kLimit = 100;
 @interface CollectionPresenter ()
 
 @property (nonatomic) BOOL isLoading;
-@property (nonatomic) NSString *query;
+@property (nonatomic, copy) NSString *query;
 @property (nonatomic) NSMutableArray<CollectionCellViewModel *> *viewModels;
 @property (nonatomic, nullable) PaginationJSONModel *pagination;
 @property (nonatomic, nullable) NSBlockOperation *operation;
@@ -61,11 +61,17 @@ NSInteger const kLimit = 100;
 	[self.delegate updateIsLoading];
 
 	__weak typeof(self) wself = self;
-	self.operation = [NSBlockOperation blockOperationWithBlock:^{
+	self.operation = [[NSBlockOperation alloc] init];
+	NSUInteger hash = self.operation.hash;
+	[self.operation addExecutionBlock:^{
 		[wself.networkService searchWithQuery:query limit:kLimit offset:wself.viewModels.count success:^(SearchResultJSONModel * _Nonnull result) {
-			[wself handleResult:result];
+			if (hash == wself.operation.hash) {
+				[wself handleResult:result];
+			}
 		} failure:^(NSError * _Nonnull error) {
-			[wself handleError];
+			if (hash == wself.operation.hash) {
+				[wself handleError];
+			}
 		}];
 	}];
 
