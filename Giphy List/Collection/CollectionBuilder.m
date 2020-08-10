@@ -9,13 +9,16 @@
 #import "CollectionBuilder.h"
 #import "CollectionViewController.h"
 #import "NetworkService.h"
+#import "ImageLoader.h"
 
 @implementation CollectionBuilder
 
 - (UIViewController *)buildModule {
 	RequestFactory *requestFactory = [[RequestFactory alloc] init];
 	NetworkService *networkService = [[NetworkService alloc] initWithRequestFactory:requestFactory];
-	CollectionPresenter *presenter = [[CollectionPresenter alloc] initWithNetworkService:networkService];
+	ImageLoader *imageLoader = [[ImageLoader alloc] init];
+	CollectionPresenter *presenter = [[CollectionPresenter alloc] initWithNetworkService:networkService
+																			 imageLoader:imageLoader];
 
 	CollectionViewController *viewController = [[CollectionViewController alloc] initWithPresenter:presenter];
 	presenter.delegate = viewController;

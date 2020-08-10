@@ -21,17 +21,19 @@ NSInteger const kLimit = 100;
 @property (nonatomic, nullable) NSBlockOperation *operation;
 
 @property (nonatomic) id<NetworkServiceProtocol> networkService;
+@property (nonatomic) ImageLoader *imageLoader;
 
 @end
 
 @implementation CollectionPresenter
 
-- (instancetype)initWithNetworkService:(id<NetworkServiceProtocol>)networkService {
+- (instancetype)initWithNetworkService:(id<NetworkServiceProtocol>)networkService imageLoader:(ImageLoader *)imageLoader {
 	self = [super init];
 	if (self) {
 		_query = @"";
 		_viewModels = @[].mutableCopy;
 		_networkService = networkService;
+		_imageLoader = imageLoader;
 	}
 	return self;
 }
@@ -90,7 +92,6 @@ NSInteger const kLimit = 100;
 	self.pagination = result.pagination;
 
 	NSMutableArray<CollectionCellViewModel *> *newViewModels = @[].mutableCopy;
-	ImageLoader *imageLoader = [[ImageLoader alloc] init];
 
 	for (GIFJSONModel *model in result.data) {
 		NSInteger width = model.images.fixedHeightSmall.width.integerValue;
@@ -99,7 +100,7 @@ NSInteger const kLimit = 100;
 		CollectionCellViewModel *viewModel = [[CollectionCellViewModel alloc] initWithWidth:width
 																					 height:height
 																						url:url
-																				imageLoader:imageLoader];
+																				imageLoader:self.imageLoader];
 		[newViewModels addObject:viewModel];
 	}
 

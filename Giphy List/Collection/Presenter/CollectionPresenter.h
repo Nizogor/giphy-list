@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak, nullable) id<CollectionPresenterDelegate> delegate;
 
-- (instancetype)initWithNetworkService:(id<NetworkServiceProtocol>)networkService;
+- (instancetype)initWithNetworkService:(id<NetworkServiceProtocol>)networkService imageLoader:(ImageLoader *)imageLoader;
 
 @end
 
